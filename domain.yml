@@ -1,0 +1,66 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - check_balance
+  - transaction_history
+  - inform
+
+entities:
+  - account_number
+  - name
+  - phone_number
+  - balance
+  - transaction
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_transaction_history
+  - utter_checking_balance
+  - utter_balance
+  - utter_transaction
+  - action_check_balance
+  - action_transaction_history
+  - None
+
+slots:
+  name:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: name
+  account_number:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: account_number
+  balance:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: balance
+  transaction:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: transaction
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_goodbye:
+    - text: "Goodbye! Have a great day."
+  utter_balance:
+    - text: "Dear {name}, your account ({account_number}) has a balance of Rs. {balance}."
+  utter_transaction:
+    - text: "Dear {name}, your account ({account_number}) has a transaction of Rs. {transaction}."
+  utter_checking_balance:
+    - text: "Sure, I can help you with your bank balance. Please provide your account number."
+  utter_transaction_history:
+    - text: "Sure, I can help you with your transaction history. Please provide your account number."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

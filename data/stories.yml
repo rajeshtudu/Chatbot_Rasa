@@ -1,0 +1,29 @@
+version: "3.1"
+
+stories:
+- story: Greet and Check Balance
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: check_balance
+    - action: utter_checking_balance
+    - intent: inform
+    - action: action_check_balance
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: Provide Account Information
+  steps:
+    - intent: transaction_history
+    - action: utter_transaction_history
+    - intent: inform
+    - action: action_transaction_history
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: when users says goodbye
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: goodbye
+    - action: utter_goodbye

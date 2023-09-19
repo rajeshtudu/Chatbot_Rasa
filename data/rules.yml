@@ -1,0 +1,29 @@
+version: "3.1"
+
+rules:
+- rule: Handle Greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Handle Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Check Balance
+  condition:
+  - active_loop: None  
+  steps:
+  - intent: check_balance
+  - action: utter_checking_balance
+  - action: utter_balance
+
+- rule: Provide Transaction History
+  condition:
+  - active_loop: None 
+  steps:
+  - intent: transaction_history
+  - action: utter_transaction_history
+  - action: utter_transaction
+
