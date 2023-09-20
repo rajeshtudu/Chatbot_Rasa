@@ -64,7 +64,7 @@ class ActionTransactionHistory(Action):
 
         if account_number in database:
             account_info = database[account_number]
-            # Extract the name and balance from the database entry
+            # Extract the name and transaction from the database entry
             name = account_info.get("name", "User")
             transaction = account_info.get("transaction", 0)
             
